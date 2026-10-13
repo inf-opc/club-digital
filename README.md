@@ -1,7 +1,10 @@
 # Club Digital
 
-Public storefront for Club Digital print-and-play kits.
+Public storefront. Paid PDFs stay on Payhip. No paid files in this repo.
 
-Buy: [The After-Dark Club — €5](https://payhip.com/b/56UhH)
+- [After-Dark Club kit — €5](https://payhip.com/b/56UhH)
+- [Host shop (Amazon.com associates)](https://inf-opc.github.io/club-digital/shop.html)
+- [Margin calculator](https://inf-opc.github.io/club-digital/margin.html)
+- [Free host checklist](https://inf-opc.github.io/club-digital/print/host-checklist.html)
 
-This repository contains marketing pages only. Paid PDFs live on Payhip.
+As an Amazon Associate, Club Digital earns from qualifying purchases. Tag `tips33-20`.
