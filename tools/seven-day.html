@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Seven days to put one offer in front of strangers | Club Digital</title>
+  <meta name="description" content="A seven-day checklist for shipping one offer. Saved on this device only.">
+  <link rel="canonical" href="https://inf-opc.github.io/club-digital/tools/seven-day.html">
+  <style>
+    :root { --ink:#232138; --cream:#fbf7ee; --orange:#c65b35; --line:rgba(35,33,56,.16); }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--cream); color:var(--ink); font-family:"Iowan Old Style",Palatino,Georgia,serif; }
+    .wrap { max-width:820px; margin:0 auto; padding:28px 22px 80px; }
+    .nav, button, .btn, .disc, footer, label { font-family:system-ui,sans-serif; }
+    .nav { font-size:13px; letter-spacing:.08em; text-transform:uppercase; }
+    .nav a { color:var(--ink); margin-right:14px; }
+    h1 { font-size:clamp(34px,6vw,56px); line-height:.95; font-weight:500; }
+    h2 { font-size:22px; margin:0 0 8px; font-weight:500; }
+    .kicker { color:var(--orange); font-family:system-ui,sans-serif; letter-spacing:.18em; text-transform:uppercase; font-size:12px; }
+    p, li { line-height:1.45; }
+    .disc { font-size:13px; border:1px solid var(--line); padding:12px 14px; border-radius:12px; background:#fff; }
+    article { border-top:1px solid var(--line); padding:22px 0; }
+    .btn { display:inline-block; background:var(--ink); color:var(--cream); text-decoration:none; padding:12px 16px; border-radius:999px; font-size:14px; font-weight:650; margin:4px 8px 4px 0; }
+    .btn.ghost { background:transparent; color:var(--ink); border:1px solid var(--ink); }
+    button { background:var(--ink); color:var(--cream); border:0; border-radius:999px; padding:12px 16px; font-size:14px; font-weight:650; }
+    input, select { font:16px system-ui,sans-serif; padding:10px 12px; border:1px solid var(--line); border-radius:10px; width:100%; background:#fff; color:var(--ink); }
+    label { display:block; font-size:13px; margin:12px 0 4px; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .out { background:#fff; border:1px solid var(--line); border-radius:16px; padding:16px; margin-top:16px; }
+    footer { font-size:13px; opacity:.75; margin-top:36px; }
+    table { width:100%; border-collapse:collapse; background:#fff; }
+    td, th { border-bottom:1px solid var(--line); padding:8px; text-align:left; font-family:system-ui,sans-serif; font-size:14px; }
+    @media (max-width:640px) { .grid { grid-template-columns:1fr; } }
+    @media print { .nav, .noprint { display:none; } body { background:#fff; } .wrap { padding:0; } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="nav"><a href="../">Kit</a><a href="../catalog.html">Catalog</a><a href="../shop.html">Halloween</a><a href="../margin.html">Margin</a></p>
+    
+    <p class="kicker">Free tool · saved on this device</p>
+    <h1>Seven days to put one offer in front of strangers.</h1>
+    <p>One offer. Not a brand reboot. Boxes stay in this browser only.</p>
+    <ol id="days"></ol>
+    <p class="noprint"><button type="button" id="reset">Clear this device</button></p>
+    <footer>Club Digital · free checklist. <a href="../catalog.html">All products</a></footer>
+    <script>
+      const items=[
+        "Name the buyer in one sentence. If you cannot, do not build a second product.",
+        "Write the offer: what they download, how long it takes to use, what it is not.",
+        "Set a price or mark it free. Name the delivery (instant file, or affiliate only).",
+        "Publish one page a stranger can open without an account.",
+        "Put that URL in one place you do not already own: a post, a directory, a reply.",
+        "Ask one person who is not you whether the first sentence is clear.",
+        "Keep the offer or kill it. Do not add a second offer until this one has a public URL."
+      ];
+      const key='cd-seven-day-v1';
+      let state={};
+      try{state=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){state={}}
+      const ol=document.getElementById('days');
+      items.forEach((text,i)=>{
+        const id='d'+i;
+        const li=document.createElement('li');
+        li.style.margin='12px 0';
+        const lab=document.createElement('label');
+        lab.style.display='flex'; lab.style.gap='10px'; lab.style.alignItems='flex-start';
+        const box=document.createElement('input');
+        box.type='checkbox'; box.id=id; box.checked=!!state[id];
+        box.style.width='22px'; box.style.height='22px';
+        box.addEventListener('change',()=>{state[id]=box.checked; localStorage.setItem(key, JSON.stringify(state));});
+        const span=document.createElement('span');
+        span.textContent='Day '+(i+1)+' — '+text;
+        lab.appendChild(box); lab.appendChild(span); li.appendChild(lab); ol.appendChild(li);
+      });
+      document.getElementById('reset').addEventListener('click',()=>{localStorage.removeItem(key); location.reload();});
+    </script>
+
+  </div>
+</body>
+</html>
