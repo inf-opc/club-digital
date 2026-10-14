@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://inf-opc.github.io/club-digital/sitemap.xml
